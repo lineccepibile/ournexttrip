@@ -18,23 +18,23 @@ Your own photos and Reel thumbnails go in `public/photos/` and `public/reels/`.
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173/our-next-escape/
+npm run dev        # http://localhost:5173/ournexttrip/
 npm run build      # production build in dist/
 ```
 
 ## Publish free on GitHub Pages
 
-1. Create an **empty public repository** on GitHub named `our-next-escape`. Don't add a README.
+1. Create an **empty public repository** on GitHub named `ournexttrip`. Don't add a README.
    (If you use a different name, change `base` in `vite.config.ts` to match.)
 2. Push this folder:
    ```bash
-   git remote add origin https://github.com/USERNAME/our-next-escape.git
+   git remote add origin https://github.com/lineccepibile/ournexttrip.git
    git push -u origin main
    ```
 3. On GitHub, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
 4. Open the **Actions** tab and wait for "Deploy to GitHub Pages" to go green (about 1 minute).
    If it ran before step 3 and failed, click **Re-run all jobs**.
-5. Your site is live at `https://USERNAME.github.io/our-next-escape/`.
+5. Your site is live at `https://lineccepibile.github.io/ournexttrip/`.
 
 Every later push to `main` redeploys automatically.
 
