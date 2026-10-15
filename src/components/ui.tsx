@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 import {
-  Anchor, Building2, CloudRain, Compass, Cpu, Fish, Gamepad2, Landmark, Leaf, Moon, Palette,
+  Anchor, Building2, Car, CloudRain, Compass, Cpu, Fish, Gamepad2, Landmark, Leaf, Moon, Palette,
   Plane, ShoppingBag, Sparkles, Stamp, Sun, Theater, Thermometer, Trees, Umbrella, Utensils, Waves,
   type LucideIcon,
 } from 'lucide-react'
@@ -24,16 +24,16 @@ export const useWorld = () => useContext(WorldCtx)
 export const categoryIcon: Record<Category, LucideIcon> = {
   sail: Anchor, flight: Plane, nature: Leaf, beach: Umbrella, culture: Landmark, theatre: Theater,
   dining: Utensils, play: Gamepad2, tech: Cpu, shopping: ShoppingBag, art: Palette, night: Moon,
-  wildlife: Fish, coast: Compass,
+  wildlife: Fish, coast: Compass, drive: Car,
 }
 export const categoryLabel: Record<Category, string> = {
   sail: 'Sail', flight: 'Fly', nature: 'Nature', beach: 'Beach', culture: 'Culture', theatre: 'Theatre',
   dining: 'Dine', play: 'Play', tech: 'Tech', shopping: 'Shop', art: 'Art', night: 'Night',
-  wildlife: 'Wildlife', coast: 'Explore',
+  wildlife: 'Wildlife', coast: 'Explore', drive: 'Drive',
 }
 export const namedIcon: Record<string, LucideIcon> = {
   sun: Sun, waves: Waves, rain: CloudRain, plane: Plane, passport: Stamp, thermometer: Thermometer,
-  'cloud-rain': CloudRain, stamp: Stamp, sparkles: Sparkles, trees: Trees, utensils: Utensils, building: Building2,
+  'cloud-rain': CloudRain, car: Car, stamp: Stamp, sparkles: Sparkles, trees: Trees, utensils: Utensils, building: Building2,
 }
 
 /* ---------- Prominent icon badge ---------- */

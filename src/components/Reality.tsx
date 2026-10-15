@@ -61,6 +61,7 @@ export function Reality() {
                 <p className={`s-${id} ${id === 'mauritius' ? 'text-3xl md:text-4xl' : 'text-lg md:text-xl'}`}>{p.summary}</p>
                 <p className="mt-5 text-sm leading-relaxed text-white/70">{p.visa}</p>
                 <p className="mt-3 text-sm leading-relaxed text-white/70">{p.flight}</p>
+                {'drive' in p && <p className="mt-3 text-sm leading-relaxed text-white/70">{p.drive}</p>}
                 <div className="mt-5 flex flex-wrap gap-2">
                   <a href={p.visaLink} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-1.5 rounded-full bg-white/10 px-4 text-xs font-bold uppercase tracking-[0.12em] hover:bg-white/20">
                     Entry rules <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />

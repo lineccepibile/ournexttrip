@@ -10,8 +10,8 @@
  *                 If omitted, a destination photo is used instead.
  *  - credit:      optional, e.g. '@creatorname'
  *
- * The site shows a preview card that opens the Reel on Instagram (no video is
- * downloaded or re-hosted).
+ * Tapping a card plays the Reel inside the site using Instagram's official embed
+ * (nothing is downloaded or re-hosted). An 'Open in Instagram' fallback is always shown.
  */
 import type { WorldId } from './types'
 
@@ -29,49 +29,49 @@ export const reels: Reel[] = [
     title: 'Shenzhen in motion · 01',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/Daeo2s8TIoe/',
-    caption: 'Tap to watch the Reel on Instagram.',
+    caption: '',
   },
   {
     title: 'Shenzhen in motion · 02',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/DapyKkACUqh/',
-    caption: 'Tap to watch the Reel on Instagram.',
+    caption: '',
   },
   {
     title: 'Shenzhen in motion · 03',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/DYeFlluxgPi/',
-    caption: 'Tap to watch the Reel on Instagram.',
+    caption: '',
   },
   {
     title: 'Shenzhen in motion · 04',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/DXRed8YTvHD/',
-    caption: 'Tap to watch the Reel on Instagram.',
+    caption: '',
   },
   {
     title: 'Shenzhen in motion · 05',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/DWv5BrUgdkF/',
-    caption: 'Tap to watch the Reel on Instagram.',
+    caption: '',
   },
   {
     title: 'Shenzhen in motion · 06',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/DWMYj7NDqo4/',
-    caption: 'Tap to watch the Reel on Instagram.',
+    caption: '',
   },
   {
     title: 'Shenzhen in motion · 07',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/DbrUzG_khqS/',
-    caption: 'Tap to watch the Reel on Instagram.',
+    caption: '',
   },
   {
     title: 'Shenzhen in motion · 08',
     world: 'shenzhen',
     url: 'https://www.instagram.com/p/Dd200UcglgT/',
-    caption: 'Tap to watch the post on Instagram.',
+    caption: '',
   },
   // Example (uncomment and replace the URL with a real public Reel):
   // {

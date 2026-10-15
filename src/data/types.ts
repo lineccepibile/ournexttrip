@@ -15,6 +15,7 @@ export type Category =
   | 'night'
   | 'wildlife'
   | 'coast'
+  | 'drive'
 
 export interface Photo {
   /** Image URL (remote or a file in /public). */

@@ -105,6 +105,17 @@ export const mauritius: World = {
       status: TBC,
     },
     {
+      id: 'mru-car',
+      title: 'The island is ours',
+      place: 'Self-drive car rental',
+      line: 'Drive on the left, stop wherever the view is best.',
+      duration: 'As many days as we like',
+      category: 'drive',
+      photo: photos.mru.drive,
+      link: { label: 'Hertz Mauritius', href: 'https://www.hertz.com/us/en/location/mauritius/belombre/mrus62' },
+      status: 'Driving permit recommended',
+    },
+    {
       id: 'mru-south',
       title: 'The scenic road south',
       place: 'Volcanoes, gorges & Chamarel day trip',
@@ -161,7 +172,8 @@ export const mauritius: World = {
       title: 'Wild south',
       mood: 'Waterfalls, colours, slow roads.',
       slots: [
-        { time: 'Morning', text: 'Seven Coloured Earth & Chamarel Waterfall', experienceId: 'mru-earth' },
+        { time: 'Morning', text: 'Pick up the car, drive south to Chamarel', experienceId: 'mru-car' },
+        { time: 'Midday', text: 'Seven Coloured Earth & Chamarel Waterfall', experienceId: 'mru-earth' },
         { time: 'Afternoon', text: 'Lagoon swim, long lunch, nap' },
       ],
     },
@@ -364,6 +376,7 @@ export const comparison = [
   { icon: 'cloud-rain', label: 'Rain risk', mauritius: 'Brief tropical showers', shenzhen: 'Low · mostly dry' },
   { icon: 'waves', label: 'Swimming', mauritius: 'Perfect · 27–28°C sea', shenzhen: 'Brisk · 20–22°C sea' },
   { icon: 'plane', label: 'Flight', mauritius: '≈ 6h 35m direct', shenzhen: '≈ 8h direct' },
+  { icon: 'car', label: 'Getting around', mauritius: 'Rent a car · drive left', shenzhen: 'Metro & taxis' },
   { icon: 'stamp', label: 'Visa', mauritius: 'Generally on arrival*', shenzhen: 'Required in advance' },
   { icon: 'sparkles', label: 'Style', mauritius: 'Slow, sunny, barefoot', shenzhen: 'Fast, immersive, wow' },
   { icon: 'trees', label: 'Nature vs city', mauritius: '90% nature', shenzhen: '90% city' },
@@ -377,6 +390,8 @@ export const practical = {
       '*Jordanian ordinary-passport holders are generally reported as eligible for a visa on arrival, subject to official entry conditions (return ticket, accommodation, funds, passport validity, and the All-in-One Travel Form). Confirm with the Mauritius Passport & Immigration Office before booking.',
     visaLink: 'https://passport.govmu.org/passport/?page_id=605',
     flight: 'Emirates EK701 DXB→MRU is a direct flight of about 6h 35m. Times vary by date.',
+    drive:
+      'Getting around: renting a car is the easiest way to explore. Traffic drives on the left. Rental agencies generally ask for a licence held at least a year, and recommend an International Driving Permit. Check with the rental company before you go.',
     flightLink: 'https://www.emirates.com/ae/english/destinations/dxb/mru/flights-from-dubai-to-mauritius/',
   },
   shenzhen: {
