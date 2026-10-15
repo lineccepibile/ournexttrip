@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { mauritius, practical, shenzhen } from '../data/destinations'
 import type { World } from '../data/types'
+import { BoardingPass } from './BoardingPass'
 import { IconBadge, Img, SectionHead, namedIcon, scrollToId, theme, useWorld } from './ui'
 
 function Panel({ world }: { world: World }) {
@@ -26,10 +27,10 @@ function Panel({ world }: { world: World }) {
         <p className={`s-${world.id} text-white ${world.id === 'mauritius' ? 'text-4xl md:text-5xl' : 'text-lg md:text-xl'}`}>{world.tagline}</p>
 
         <dl className="grid grid-cols-2 gap-2.5">
-          {world.stats.map((s, i) => {
+          {world.stats.map((s) => {
             const Icon = namedIcon[s.icon]
             return (
-              <div key={s.label} className={`rounded-2xl bg-white/[0.06] p-3.5 ring-1 ring-white/10 ${i === world.stats.length - 1 ? 'col-span-2' : ''}`}>
+              <div key={s.label} className={`rounded-2xl bg-white/[0.06] p-3.5 ring-1 ring-white/10`}>
                 <dt className="flex items-center gap-2.5 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white/60">
                   <IconBadge icon={Icon} world={world.id} size="sm" />
                   {s.label}
@@ -40,6 +41,8 @@ function Panel({ world }: { world: World }) {
             )
           })}
         </dl>
+
+        <BoardingPass flights={world.flights} world={world.id} />
 
         <ul className="space-y-2">
           {world.highlights.map((h) => (
@@ -99,7 +102,7 @@ export function Worlds() {
   return (
     <section id="worlds" className="relative scroll-mt-4 bg-ink py-24 md:py-36">
       <SectionHead index="02" kicker="The contenders" title={<>Pick a world<br /><span className="serif normal-case tracking-normal text-white/80">to explore</span></>}>
-        Two very different ways to spend five days. Swipe between them.
+        Two very different ways to spend six days. Swipe between them.
       </SectionHead>
 
       <motion.div

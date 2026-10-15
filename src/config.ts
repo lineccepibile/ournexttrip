@@ -20,7 +20,7 @@ export const siteConfig = {
   },
 
   dates: {
-    label: '1–5 December 2026',
-    short: '1–5 December',
+    label: '1–6 December 2026',
+    short: '1–6 December',
   },
 }

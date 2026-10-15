@@ -1,6 +1,6 @@
 # Two Worlds. One Escape.
 
-A tiny, cinematic, fully static travel microsite: Mauritius vs Shenzhen, 1–5 December 2026.
+A tiny, cinematic, fully static travel microsite: Mauritius vs Shenzhen, 1–6 December 2026.
 React + Vite + TypeScript + Tailwind CSS + Motion + Lucide. Hosted free on GitHub Pages.
 
 ## Edit the content

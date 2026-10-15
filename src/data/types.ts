@@ -55,6 +55,20 @@ export interface Stat {
   note?: string
 }
 
+export interface Flight {
+  leg: 'Outbound' | 'Return'
+  date: string
+  dep: string
+  arr: string
+  from: string
+  to: string
+  arrDate?: string
+  flight: string
+  aircraft: string
+  duration: string
+  note?: string
+}
+
 export interface DayPlan {
   date: string
   weekday: string
@@ -74,6 +88,7 @@ export interface World {
   stats: Stat[]
   highlights: string[]
   experiences: Experience[]
+  flights: Flight[]
   itinerary: DayPlan[]
   closing: string
 }

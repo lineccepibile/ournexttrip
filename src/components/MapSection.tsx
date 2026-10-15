@@ -6,8 +6,8 @@ import { Globe } from './Globe'
 import { SectionHead, scrollToId, useWorld } from './ui'
 
 const stops: { id: WorldId; name: string; country: string; line: string; color: string }[] = [
-  { id: 'mauritius', name: 'Mauritius', country: 'Island nation · Indian Ocean', line: 'South over the ocean, ≈ 6h 35m non-stop', color: '#19c3c0' },
-  { id: 'shenzhen', name: 'Shenzhen', country: 'Guangdong · China', line: 'East to the Pearl River Delta, ≈ 8h non-stop', color: '#ff2fa0' },
+  { id: 'mauritius', name: 'Mauritius', country: 'Island nation · Indian Ocean', line: 'South over the ocean · 6h 45m non-stop', color: '#19c3c0' },
+  { id: 'shenzhen', name: 'Shenzhen', country: 'Guangdong · China', line: 'East to the Pearl River Delta · 7h 15m non-stop', color: '#ff2fa0' },
 ]
 
 export function MapSection() {
@@ -74,7 +74,7 @@ export function MapSection() {
               </button>
             )
           })}
-          <p className="mt-2 text-xs text-white/45">Flight times are typical non-stop Emirates block times. Schedules change, so check before booking.</p>
+          <p className="mt-2 text-xs text-white/45">Emirates non-stop flight times, from the airline’s schedule. Confirm when booking.</p>
         </div>
       </div>
     </section>

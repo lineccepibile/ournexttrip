@@ -111,7 +111,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 1.5, ease }}
           className="mt-10 flex flex-col items-center gap-4 md:mt-14"
         >
-          <p className="kicker text-white/45">Five days · Two destinations · One impossible decision</p>
+          <p className="kicker text-white/45">Six days · Two destinations · One impossible decision</p>
           <motion.button
             type="button"
             onClick={() => scrollToId('explore')}

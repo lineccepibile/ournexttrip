@@ -24,7 +24,6 @@ export const mauritius: World = {
     { icon: 'sun', label: 'Daytime', value: '28–30°C', note: 'December average' },
     { icon: 'waves', label: 'Sea', value: '27–28°C', note: 'Warm enough to stay in for hours' },
     { icon: 'rain', label: 'Rain', value: 'Passing showers', note: 'Tropical summer, short bursts' },
-    { icon: 'plane', label: 'From Dubai', value: '≈ 6h 35m direct', note: 'Emirates EK701, non-stop' },
     { icon: 'passport', label: 'Entry', value: 'Visa on arrival*', note: 'Generally, for Jordanian passports' },
   ],
   highlights: ['Lagoons in four shades of blue', 'An ocean that tricks the eye', 'Barefoot dinners at sunset'],
@@ -138,6 +137,10 @@ export const mauritius: World = {
       status: 'Optional · ' + TBC,
     },
   ],
+  flights: [
+    { leg: 'Outbound', date: 'Tue 1 Dec', dep: '02:25', arr: '09:10', from: 'DXB', to: 'MRU', flight: 'EK701', aircraft: 'A380', duration: '6h 45m' },
+    { leg: 'Return', date: 'Sun 6 Dec', dep: '16:25', arr: '23:00', from: 'MRU', to: 'DXB', flight: 'EK702', aircraft: 'A380', duration: '6h 35m' },
+  ],
   itinerary: [
     {
       date: '1 Dec',
@@ -145,7 +148,7 @@ export const mauritius: World = {
       title: 'Hello, turquoise',
       mood: 'Land, exhale, swim.',
       slots: [
-        { time: 'Morning', text: 'Overnight Emirates flight lands mid-morning (typical schedule)' },
+        { time: '02:25', text: 'Take off from Dubai on EK701, land in Mauritius at 09:10' },
         { time: 'Sunset', text: 'Golden hour on a west-coast catamaran', experienceId: 'mru-sunset' },
       ],
     },
@@ -180,11 +183,21 @@ export const mauritius: World = {
     {
       date: '5 Dec',
       weekday: 'Sat',
-      title: 'One more bite',
-      mood: 'Markets, then home.',
+      title: 'Quiet company',
+      mood: 'Dolphins at dawn, street food at noon.',
       slots: [
-        { time: 'Morning', text: 'Port Louis street food & Central Market', experienceId: 'mru-portlouis' },
-        { time: 'Later', text: 'Fly home (times to be confirmed)' },
+        { time: 'Morning', text: 'Kayak with dolphins in Tamarin Bay (optional)', experienceId: 'mru-dolphins' },
+        { time: 'Afternoon', text: 'Port Louis street food & Caudan Waterfront', experienceId: 'mru-portlouis' },
+      ],
+    },
+    {
+      date: '6 Dec',
+      weekday: 'Sun',
+      title: 'One last swim',
+      mood: 'Salt, sun, and a slow goodbye.',
+      slots: [
+        { time: 'Morning', text: 'Last lagoon swim and a long brunch', experienceId: 'mru-beachclub' },
+        { time: '16:25', text: 'Fly home on EK702, back in Dubai at 23:00' },
       ],
     },
   ],
@@ -203,7 +216,6 @@ export const shenzhen: World = {
     { icon: 'sun', label: 'Daytime', value: '19–23°C', note: 'December average' },
     { icon: 'waves', label: 'Sea', value: '20–22°C', note: 'Coastal walks > swimming' },
     { icon: 'rain', label: 'Rain', value: 'Mostly dry', note: 'One of the driest months' },
-    { icon: 'plane', label: 'From Dubai', value: '≈ 8h direct', note: 'Emirates EK328, non-stop' },
     { icon: 'passport', label: 'Entry', value: 'Visa in advance', note: 'Chinese tourist (L) visa' },
   ],
   highlights: ['Theatre on a vintage ocean liner', 'Robots, drones and gadget heaven', 'A skyline that glows all night'],
@@ -313,6 +325,10 @@ export const shenzhen: World = {
       link: { label: 'Shenzhen Gov', href: 'https://www.sz.gov.cn/en_szgov/news/infocus/park/csgy/content/post_10986843.html' },
     },
   ],
+  flights: [
+    { leg: 'Outbound', date: 'Tue 1 Dec', dep: '10:45', arr: '22:00', from: 'DXB', to: 'SZX', flight: 'EK328', aircraft: 'B777', duration: '7h 15m' },
+    { leg: 'Return', date: 'Mon 7 Dec', dep: '00:45', arr: '05:20', from: 'SZX', to: 'DXB', flight: 'EK329', aircraft: 'B777', duration: '8h 35m', note: 'Just after midnight, the night of Sun 6' },
+  ],
   itinerary: [
     {
       date: '1 Dec',
@@ -320,7 +336,7 @@ export const shenzhen: World = {
       title: 'Neon arrival',
       mood: 'Land late, look up.',
       slots: [
-        { time: 'Day', text: 'Daytime Emirates flight (2025 timetable: lands ≈ 22:00)' },
+        { time: '10:45', text: 'Take off from Dubai on EK328, land in Shenzhen at 22:00' },
         { time: 'Night', text: 'Late noodles and a first glimpse of the glowing skyline' },
       ],
     },
@@ -340,7 +356,7 @@ export const shenzhen: World = {
       title: 'Play & plot',
       mood: 'Race, wander, get lost in a story.',
       slots: [
-        { time: 'Afternoon', text: 'K11 ECOAST art + KP-FUN racing', experienceId: 'szx-kpfun' },
+        { time: 'Afternoon', text: 'KP-FUN: VR, karts and laser tag', experienceId: 'szx-kpfun' },
         { time: 'Evening', text: '“The Deal” aboard the Minghua', experienceId: 'szx-deal' },
       ],
     },
@@ -351,17 +367,27 @@ export const shenzhen: World = {
       mood: 'Slow morning, electric night.',
       slots: [
         { time: 'Day', text: 'Dameisha Beach, coffee by the water', experienceId: 'szx-beach' },
-        { time: 'Night', text: 'Sunset on floor 116, then the bay light show', experienceId: 'szx-skyline' },
+        { time: 'Night', text: 'Sunset on floor 116 of the Ping An tower', experienceId: 'szx-skyline' },
       ],
     },
     {
       date: '5 Dec',
       weekday: 'Sat',
-      title: 'Robots & goodbye',
-      mood: 'One last wow.',
+      title: 'Meet the robots',
+      mood: 'Shake hands with tomorrow.',
       slots: [
         { time: 'Day', text: 'Robot experience space + Shenzhen Bay walk', experienceId: 'szx-robots' },
-        { time: 'Late', text: 'Overnight flight home (2025 timetable: departs ≈ 23:55)' },
+        { time: 'Evening', text: 'Shenzhen Bay light show (weekend nights)', experienceId: 'szx-lightshow' },
+      ],
+    },
+    {
+      date: '6 Dec',
+      weekday: 'Sun',
+      title: 'Art & goodbye',
+      mood: 'One last wander, then the night flight.',
+      slots: [
+        { time: 'Day', text: 'K11 ECOAST art district by the sea', experienceId: 'szx-k11' },
+        { time: '00:45', text: 'Fly home on EK329 just after midnight, back in Dubai at 05:20 Mon' },
       ],
     },
   ],
@@ -375,7 +401,7 @@ export const comparison = [
   { icon: 'thermometer', label: 'Temperature', mauritius: '28–30°C · summer', shenzhen: '19–23°C · mild' },
   { icon: 'cloud-rain', label: 'Rain risk', mauritius: 'Brief tropical showers', shenzhen: 'Low · mostly dry' },
   { icon: 'waves', label: 'Swimming', mauritius: 'Perfect · 27–28°C sea', shenzhen: 'Brisk · 20–22°C sea' },
-  { icon: 'plane', label: 'Flight', mauritius: '≈ 6h 35m direct', shenzhen: '≈ 8h direct' },
+  { icon: 'plane', label: 'Flight', mauritius: '6h 45m · leaves 02:25', shenzhen: '7h 15m · leaves 10:45' },
   { icon: 'car', label: 'Getting around', mauritius: 'Rent a car · drive left', shenzhen: 'Metro & taxis' },
   { icon: 'stamp', label: 'Visa', mauritius: 'Generally on arrival*', shenzhen: 'Required in advance' },
   { icon: 'sparkles', label: 'Style', mauritius: 'Slow, sunny, barefoot', shenzhen: 'Fast, immersive, wow' },
@@ -389,7 +415,7 @@ export const practical = {
     visa:
       '*Jordanian ordinary-passport holders are generally reported as eligible for a visa on arrival, subject to official entry conditions (return ticket, accommodation, funds, passport validity, and the All-in-One Travel Form). Confirm with the Mauritius Passport & Immigration Office before booking.',
     visaLink: 'https://passport.govmu.org/passport/?page_id=605',
-    flight: 'Emirates EK701 DXB→MRU is a direct flight of about 6h 35m. Times vary by date.',
+    flight: 'Emirates non-stop: EK701 out on Tue 1 Dec (02:25 → 09:10), EK702 back on Sun 6 Dec (16:25 → 23:00). Times from the Emirates schedule; confirm when booking.',
     drive:
       'Getting around: renting a car is the easiest way to explore. Traffic drives on the left. Rental agencies generally ask for a licence held at least a year, and recommend an International Driving Permit. Check with the rental company before you go.',
     flightLink: 'https://www.emirates.com/ae/english/destinations/dxb/mru/flights-from-dubai-to-mauritius/',
@@ -400,7 +426,7 @@ export const practical = {
       'Jordanian ordinary passports need a Chinese tourist (L) visa in advance. Apply online at visaforchina.cn, then submit your original passport in person at the Chinese Visa Application Service Center in Dubai. Allow time for the 4-working-day regular service, and check whether you need an appointment.',
     visaLink: 'https://www.visaforchina.cn/DXB3_EN/tongzhigonggao/400954502653546496.html',
     flight:
-      'Emirates has flown DXB→SZX non-stop (EK328) since July 2025, about 8 h. Times quoted here are from the 2025 timetable; check December 2026 times on emirates.com.',
+      'Emirates non-stop: EK328 out on Tue 1 Dec (10:45 → 22:00), EK329 back just after midnight on Mon 7 Dec (00:45 → 05:20). Times from the Emirates schedule; confirm when booking.',
     flightLink:
       'https://www.emirates.com/media-centre/emirates-expands-global-network-with-the-official-introduction-of-three-new-destinations--shenzhen-in-china-da-nang-in-vietnam-and-siem-reap-in-cambodia/',
   },

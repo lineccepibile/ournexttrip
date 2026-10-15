@@ -16,7 +16,7 @@ export function Itinerary() {
   return (
     <section id="itinerary" className="relative overflow-hidden py-24 md:py-36" style={{ background: world === 'mauritius' ? '#f1dfc0' : '#0a0b24', transition: 'background 1s' }}>
       <div className={world === 'mauritius' ? 'text-ink' : 'text-white'}>
-        <SectionHead tone={world === 'mauritius' ? 'dark' : 'light'} index="05" kicker="Five days, sketched" title={<>What our<br />five days<br /><span className="serif normal-case tracking-normal">could look like</span></>}>
+        <SectionHead tone={world === 'mauritius' ? 'dark' : 'light'} index="05" kicker="Six days, sketched" title={<>What our<br />six days<br /><span className="serif normal-case tracking-normal">could look like</span></>}>
             One or two big moments a day. Lots of room for nothing at all.
           </SectionHead>
 
@@ -25,7 +25,7 @@ export function Itinerary() {
             <WorldSwitch />
           </div>
 
-          <div role="tablist" aria-label="Days" className="mt-8 grid grid-cols-5 gap-1.5 md:gap-3">
+          <div role="tablist" aria-label="Days" className="mt-8 grid grid-cols-6 gap-1 md:gap-3">
             {w.itinerary.map((d, i) => {
               const active = i === day
               return (
