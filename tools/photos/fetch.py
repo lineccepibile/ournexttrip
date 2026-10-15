@@ -3,7 +3,7 @@ import io, json, os, re, sys, time, urllib.parse, urllib.request
 from PIL import Image
 
 UA = 'TwoWorldsMicrosite/1.0 (personal non-commercial project; github.com/lineccepibile/ournexttrip)'
-OUT = 'tools/photos/candidates'
+OUT = os.environ.get('OUT', 'tools/photos/candidates')
 FREE = re.compile(r'^(cc0|cc[- ]?by|public domain|pd|cc[- ]?by[- ]?sa)', re.I)
 
 def get(url, binary=False):
@@ -57,18 +57,18 @@ def candidates():
         os.makedirs(f'{OUT}/{slot}', exist_ok=True)
         found, seen = [], set()
         for q in queries:
-            for gen in (commons, openverse):
+            for gen in (openverse, commons):
                 try:
                     for it in gen(q):
                         if it['img'] in seen: continue
                         seen.add(it['img'])
                         found.append(it)
-                        if sum(1 for f in found if f['source'] == it['source']) >= 6: break
+                        if sum(1 for f in found if f['source'].split('/')[0] == it['source'].split('/')[0]) >= 4: break
                 except Exception as e:
                     print('search fail', slot, q, gen.__name__, e)
                 time.sleep(0.5)
         kept = []
-        for it in found[:14]:
+        for it in found[:18]:
             n = len(kept)
             try:
                 save(it, f'{OUT}/{slot}/{n:02d}.jpg', 520)
@@ -82,7 +82,8 @@ def candidates():
 def finals():
     picks = json.load(open('tools/photos/picks.json'))
     os.makedirs('public/photos', exist_ok=True)
-    credits = {}
+    cpath = 'src/data/photo-credits.json'
+    credits = json.load(open(cpath)) if os.path.exists(cpath) else {}
     for slot, idx in picks.items():
         src, idx = idx.split('/') if isinstance(idx, str) else (slot, idx)
         it = json.load(open(f'{OUT}/{src}/meta.json'))[int(idx)]
@@ -90,7 +91,7 @@ def finals():
         im = Image.open(f'public/photos/{slot}.jpg'); im.thumbnail((800, 1600)); im.save(f'public/photos/{slot}-800.jpg', 'JPEG', quality=80, optimize=True, progressive=True)
         credits[slot] = {k: it[k] for k in ('title', 'author', 'license', 'page', 'source')}
         print('final', slot)
-    json.dump(credits, open('src/data/photo-credits.json', 'w'), indent=1, ensure_ascii=False)
+    json.dump(credits, open(cpath, 'w'), indent=1, ensure_ascii=False)
 
 if __name__ == '__main__':
     finals() if 'finals' in sys.argv else candidates()
