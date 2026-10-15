@@ -65,7 +65,7 @@ export const theme = {
   shenzhen: {
     gradient: 'linear-gradient(135deg, #0a0b24 0%, #1a1a6b 40%, #7b3cff 72%, #ff2fa0 100%)',
     bg: '#0a0b24',
-    accent: '#2f6bff',
+    accent: '#86a4ff',
     accent2: '#ff2fa0',
     textGradient: 'text-gradient-szx',
   },
