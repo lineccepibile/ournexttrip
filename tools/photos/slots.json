@@ -1,12 +1,3 @@
 {
-  "deal": ["Minghua ship night", "Sea World Shekou night", "immersive theatre", "theatre stage dramatic light"],
-  "banquet": ["Tang dynasty dance", "Chinese classical dance stage", "Chinese opera performance", "hanfu"],
-  "play": ["go kart neon", "virtual reality headset", "laser tag", "neon arcade", "racing simulator"],
-  "tech": ["DJI drone", "drone flying city", "DJI Mavic", "drone light show"],
-  "robots": ["Unitree robot", "humanoid robot", "robot dog", "robot exhibition"],
-  "hqb": ["Huaqiangbei", "Shenzhen electronics market", "Huaqiangbei night", "SEG Electronics Market"],
-  "art": ["Shenzhen architecture", "Shenzhen Bay Sports Center", "OCT Loft Shenzhen", "Shenzhen museum architecture", "Shenzhen futuristic building"],
-  "sky": ["Shenzhen aerial night", "Shenzhen from above", "Ping An Finance Center night", "Shenzhen skyline night"],
-  "lights": ["Shenzhen light show", "Shenzhen drone show", "Shenzhen Bay night", "Shenzhen night lights"],
-  "beach": ["Dameisha", "Xiaomeisha", "Shenzhen beach", "Shenzhen coast sunset"]
+  "dafen": ["Dafen oil painting village", "Dafen Shenzhen", "Dafen village painters"]
 }
