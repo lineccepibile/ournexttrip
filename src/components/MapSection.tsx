@@ -43,7 +43,7 @@ export function MapSection() {
                   <span className="relative inline-flex h-3 w-3 rounded-full" style={{ background: s.color }} />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="display block text-3xl md:text-4xl">{s.name}</span>
+                  <span className={`t-${s.id} block ${s.id === 'mauritius' ? 'text-4xl md:text-5xl' : 'text-2xl md:text-3xl'}`}>{s.name}</span>
                   <span className="mt-1 block text-[0.68rem] font-bold uppercase tracking-[0.16em]" style={{ color: s.color }}>{s.country}</span>
                   <span className="mt-1.5 block text-sm text-white/65">{s.line}</span>
                 </span>

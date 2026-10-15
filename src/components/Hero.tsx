@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform } from 'motion/react'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, Bot, Palmtree } from 'lucide-react'
 import { useRef } from 'react'
 import { mauritius, shenzhen } from '../data/destinations'
 import { siteConfig } from '../config'
 import type { World } from '../data/types'
-import { Img, scrollToId } from './ui'
+import { IconBadge, Img, scrollToId } from './ui'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -43,14 +43,15 @@ function DestinationCard({ world, delay }: { world: World; delay: number }) {
         className="absolute inset-0 opacity-0 mix-blend-soft-light transition-opacity duration-700 group-hover:opacity-100"
         style={{ background: isM ? 'linear-gradient(180deg,transparent,#ff7a5c)' : 'linear-gradient(180deg,transparent,#ff2fa0)' }}
       />
-      <div className="absolute inset-x-0 top-0 flex items-center justify-between p-3 md:p-5">
-        <span className="kicker truncate rounded-full bg-black/35 px-2.5 py-1.5 text-[0.6rem] text-white/90 backdrop-blur-md md:text-[0.68rem]">
+      <div className="absolute inset-x-0 top-0 flex items-center justify-end gap-2 p-3 sm:justify-between md:p-5">
+        <span className="kicker hidden truncate rounded-full bg-black/35 px-2.5 py-1.5 text-[0.6rem] sm:inline text-white/90 backdrop-blur-md md:text-[0.68rem]">
           {world.escape}
         </span>
+        <IconBadge icon={isM ? Palmtree : Bot} world={world.id} size="md" solid />
       </div>
       <div className="absolute inset-x-0 bottom-0 p-3 md:p-6">
-        <p className={`display text-[clamp(1.35rem,6.4vw,3.6rem)] ${isM ? 'text-gradient-mru' : 'text-gradient-szx'}`}>{world.name}</p>
-        <p className="serif mt-1 text-[clamp(0.95rem,3.4vw,1.6rem)] leading-tight text-white/90">“{world.slogan}”</p>
+        <p className={`t-${world.id} ${isM ? 'text-gradient-mru text-[clamp(1.7rem,8vw,4.2rem)]' : 'text-gradient-szx text-[clamp(1.05rem,5vw,2.9rem)]'}`}>{world.name}</p>
+        <p className={`s-${world.id} mt-1.5 leading-tight text-white/90 ${isM ? 'text-[clamp(1.15rem,4.6vw,2rem)]' : 'text-[clamp(0.66rem,2.6vw,1.05rem)]'}`}>{world.slogan}</p>
       </div>
     </motion.button>
   )

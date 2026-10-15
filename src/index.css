@@ -111,6 +111,34 @@
   }
 }
 
+/* Destination type personalities */
+.t-mauritius {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-weight: 800;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
+.s-mauritius {
+  font-family: 'Caveat Variable', 'Bradley Hand', cursive;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+.t-shenzhen {
+  font-family: 'Unbounded Variable', 'Arial Black', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+.s-shenzhen {
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
 /* Slow "cinematic loop" drift for still photography */
 @keyframes kenburns {
   0% { transform: scale(1.04) translate3d(0, 0, 0); }

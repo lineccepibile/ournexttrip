@@ -8,6 +8,7 @@ import { Itinerary } from './components/Itinerary'
 import { Reality } from './components/Reality'
 import { Decision } from './components/Decision'
 import { Footer } from './components/Footer'
+import { Dock } from './components/Dock'
 import { WorldProvider } from './components/ui'
 
 function Progress() {
@@ -39,6 +40,7 @@ export default function App() {
             <Decision />
           </main>
           <Footer />
+          <Dock />
         </div>
       </WorldProvider>
     </MotionConfig>

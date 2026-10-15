@@ -22,10 +22,10 @@ export function Reality() {
           <div className="grid grid-cols-2 md:grid-cols-[1fr_1.2fr_1.2fr]">
             <div className="hidden md:block" />
             <div className="bg-[#04363b] px-4 py-4 text-white md:px-6">
-              <p className="display text-xl md:text-2xl">Mauritius 🌴</p>
+              <p className="t-mauritius text-2xl md:text-3xl">Mauritius 🌴</p>
             </div>
             <div className="bg-[#0a0b24] px-4 py-4 text-white md:px-6">
-              <p className="display text-xl md:text-2xl">Shenzhen 🤖</p>
+              <p className="t-shenzhen text-base md:text-xl">Shenzhen 🤖</p>
             </div>
           </div>
           {comparison.map((row, i) => {
@@ -39,8 +39,10 @@ export function Reality() {
                 transition={{ duration: 0.5, delay: i * 0.04 }}
                 className="grid grid-cols-2 border-t border-ink/10 md:grid-cols-[1fr_1.2fr_1.2fr]"
               >
-                <div className="col-span-2 flex items-center gap-2.5 px-4 pt-4 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-ink/55 md:col-span-1 md:px-6 md:py-5">
-                  <Icon className="h-4 w-4" aria-hidden />
+                <div className="col-span-2 flex items-center gap-3 px-4 pt-4 text-[0.72rem] font-extrabold uppercase tracking-[0.16em] text-ink/70 md:col-span-1 md:px-6 md:py-5">
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white" style={{ background: 'linear-gradient(140deg,#19c3c0,#7b3cff 60%,#ff2fa0)' }}>
+                    <Icon className="h-5 w-5" strokeWidth={2.2} aria-hidden />
+                  </span>
                   {row.label}
                 </div>
                 <div className="px-4 pb-4 pt-1.5 text-[0.95rem] font-semibold leading-snug md:px-6 md:py-5 md:text-base">{row.mauritius}</div>
@@ -56,7 +58,7 @@ export function Reality() {
             const dark = id === 'mauritius' ? '#04363b' : '#0a0b24'
             return (
               <div key={id} className="rounded-[1.5rem] p-6 text-white md:p-8" style={{ background: dark }}>
-                <p className="serif text-2xl leading-snug md:text-3xl">{p.summary}</p>
+                <p className={`s-${id} ${id === 'mauritius' ? 'text-3xl md:text-4xl' : 'text-lg md:text-xl'}`}>{p.summary}</p>
                 <p className="mt-5 text-sm leading-relaxed text-white/70">{p.visa}</p>
                 <p className="mt-3 text-sm leading-relaxed text-white/70">{p.flight}</p>
                 <div className="mt-5 flex flex-wrap gap-2">

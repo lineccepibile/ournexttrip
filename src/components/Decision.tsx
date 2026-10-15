@@ -105,11 +105,11 @@ function Reveal({ id, surprised, onClose }: { id: WorldId; surprised: boolean; o
           initial={{ opacity: 0, scale: 0.85, filter: 'blur(12px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className={`display mt-4 text-[clamp(3.4rem,17vw,10rem)] ${theme[id].textGradient}`}
+          className={`t-${id} mt-4 ${id === 'mauritius' ? 'text-[clamp(3.6rem,18vw,10rem)]' : 'text-[clamp(2rem,10vw,6.5rem)]'} ${theme[id].textGradient}`}
         >
           {w.name}
         </motion.h3>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }} className="serif mt-3 text-[clamp(1.5rem,5vw,2.4rem)] leading-tight">
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }} className={`s-${id} mt-4 ${id === 'mauritius' ? 'text-[clamp(1.9rem,6.5vw,3rem)]' : 'text-[clamp(1rem,3.6vw,1.4rem)]'}`}>
           {id === 'mauritius' ? 'Paradise it is.' : 'The future it is.'}
           {siteConfig.partnerName && <> Good call, {siteConfig.partnerName}.</>}
         </motion.p>
@@ -207,7 +207,7 @@ export function Decision() {
               {lit && <div className="absolute inset-0 ring-4 ring-inset" style={{ ['--tw-ring-color' as string]: theme[id].accent2 }} />}
               <div className={`gutter absolute inset-0 mx-auto flex max-w-7xl flex-col justify-center ${id === 'shenzhen' ? 'items-end text-right' : ''}`}>
                 <p className="kicker text-white/75">{w.emoji} {w.name}</p>
-                <p className="display mt-3 max-w-[12ch] text-[clamp(2.3rem,9vw,6.5rem)] transition-transform duration-700 group-hover:translate-x-2">
+                <p className={`t-${id} mt-3 transition-transform duration-700 group-hover:translate-x-2 ${id === 'mauritius' ? 'max-w-[11ch] text-[clamp(2.6rem,10vw,7rem)]' : 'max-w-[14ch] text-[clamp(1.6rem,6.6vw,4.6rem)]'}`}>
                   {line}
                 </p>
                 <span className={`mt-5 inline-flex min-h-11 items-center rounded-full bg-white/15 ${id === 'shenzhen' ? 'self-end' : 'self-start'} px-5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur-md transition-colors group-hover:bg-white group-hover:text-ink`}>

@@ -3,7 +3,7 @@ import { allPhotos } from '../data/photos'
 export function Footer() {
   const unique = Array.from(new Map(allPhotos.filter((p) => p.credit).map((p) => [p.credit!.href, p.credit!])).values())
   return (
-    <footer className="gutter mx-auto max-w-7xl border-t border-white/10 py-10 text-xs text-white/40">
+    <footer className="gutter mx-auto max-w-7xl border-t border-white/10 pb-28 pt-10 text-xs text-white/40">
       <p className="display text-lg text-white/70">Two worlds. One escape.</p>
       <p className="mt-2">A personal invitation, made with love. Not affiliated with any venue, airline or booking site.</p>
       <details className="mt-5">

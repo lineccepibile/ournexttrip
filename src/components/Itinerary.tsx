@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { worlds } from '../data/destinations'
-import { Img, SectionHead, WorldSwitch, theme, useWorld } from './ui'
+import { Plane, Sun } from 'lucide-react'
+import { IconBadge, Img, SectionHead, WorldSwitch, categoryIcon, theme, useWorld } from './ui'
 
 export function Itinerary() {
   const { world } = useWorld()
@@ -69,15 +70,22 @@ export function Itinerary() {
                 </p>
               </div>
               <div className="flex flex-col p-6 text-white md:p-10">
-                <h3 className={`display text-[clamp(2.2rem,8vw,4rem)] ${theme[world].textGradient}`}>{plan.title}</h3>
-                <p className="serif mt-2 text-2xl text-white/85">{plan.mood}</p>
+                <h3 className={`t-${world} ${world === 'mauritius' ? 'text-[clamp(2.6rem,10vw,4.4rem)]' : 'text-[clamp(1.6rem,6.6vw,2.8rem)]'} ${theme[world].textGradient}`}>{plan.title}</h3>
+                <p className={`s-${world} mt-2 text-white/85 ${world === 'mauritius' ? 'text-3xl' : 'text-base'}`}>{plan.mood}</p>
                 <ol className="mt-7 space-y-5">
-                  {plan.slots.map((s) => (
-                    <li key={s.text} className="grid grid-cols-[5.5rem_1fr] gap-3 border-t border-white/15 pt-4">
-                      <span className="text-[0.68rem] font-bold uppercase tracking-[0.16em]" style={{ color: theme[world].accent2 }}>{s.time}</span>
-                      <span className="text-base leading-snug text-white/90">{s.text}</span>
-                    </li>
-                  ))}
+                  {plan.slots.map((s) => {
+                    const exp = w.experiences.find((e) => e.id === s.experienceId)
+                    const SlotIcon = exp ? categoryIcon[exp.category] : /fl(y|ight)/i.test(s.text) ? Plane : Sun
+                    return (
+                      <li key={s.text} className="flex items-center gap-4 border-t border-white/15 pt-4">
+                        <IconBadge icon={SlotIcon} world={world} size="lg" solid={!!exp} />
+                        <span className="min-w-0">
+                          <span className="block text-[0.68rem] font-bold uppercase tracking-[0.16em]" style={{ color: theme[world].accent2 }}>{s.time}</span>
+                          <span className="mt-0.5 block text-base leading-snug text-white/90">{s.text}</span>
+                        </span>
+                      </li>
+                    )
+                  })}
                 </ol>
                 <p className="mt-auto pt-8 text-xs text-white/50">Inspiration only. Nothing is booked, and flight and ticket times still need confirming.</p>
               </div>

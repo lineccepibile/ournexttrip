@@ -200,7 +200,7 @@ export function Globe({ focus }: { focus: WorldId | null }) {
             key={l.id}
             aria-hidden
             className="pointer-events-none absolute whitespace-nowrap transition-opacity duration-300"
-            style={{ left: `${l.x * 100}%`, top: `${l.y * 100}%`, opacity: l.visible ? 1 : 0, transform: 'translate(10px, -50%)' }}
+            style={{ left: `${l.x * 100}%`, top: `${l.y * 100}%`, opacity: l.visible ? 1 : 0, transform: l.x > 0.62 ? 'translate(calc(-100% - 10px), -50%)' : 'translate(10px, -50%)', textAlign: l.x > 0.62 ? 'right' : 'left' }}
           >
             <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.16em]" style={{ color: p.color, textShadow: '0 1px 8px rgba(0,0,0,.8)' }}>{p.label}</p>
             <p className="text-[0.65rem] text-white/60" style={{ textShadow: '0 1px 8px rgba(0,0,0,.8)' }}>{p.sub}</p>

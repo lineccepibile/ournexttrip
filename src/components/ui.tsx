@@ -36,6 +36,22 @@ export const namedIcon: Record<string, LucideIcon> = {
   'cloud-rain': CloudRain, stamp: Stamp, sparkles: Sparkles, trees: Trees, utensils: Utensils, building: Building2,
 }
 
+/* ---------- Prominent icon badge ---------- */
+
+export function IconBadge({ icon: Icon, world, size = 'md', solid = false }: { icon: LucideIcon; world: WorldId; size?: 'sm' | 'md' | 'lg'; solid?: boolean }) {
+  const dims = { sm: 'h-9 w-9', md: 'h-11 w-11', lg: 'h-14 w-14' }[size]
+  const ic = { sm: 'h-[18px] w-[18px]', md: 'h-[22px] w-[22px]', lg: 'h-7 w-7' }[size]
+  const grad = world === 'mauritius' ? 'linear-gradient(140deg,#a8ecd9,#19c3c0 55%,#ff7a5c)' : 'linear-gradient(140deg,#8fa8ff,#7b3cff 55%,#ff2fa0)'
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center justify-center rounded-full ${dims} ${solid ? 'text-ink shadow-lg shadow-black/30' : 'ring-1 ring-inset ring-white/20'}`}
+      style={solid ? { background: grad } : { background: world === 'mauritius' ? 'rgba(25,195,192,.16)' : 'rgba(123,60,255,.2)', color: world === 'mauritius' ? '#5fe0dc' : '#b59bff' }}
+    >
+      <Icon className={ic} strokeWidth={2.2} aria-hidden />
+    </span>
+  )
+}
+
 /* ---------- Theme tokens per world ---------- */
 
 export const theme = {

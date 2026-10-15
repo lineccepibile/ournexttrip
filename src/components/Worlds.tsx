@@ -1,9 +1,9 @@
 import { motion } from 'motion/react'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { mauritius, practical, shenzhen } from '../data/destinations'
 import type { World } from '../data/types'
-import { Img, SectionHead, namedIcon, scrollToId, theme, useWorld } from './ui'
+import { IconBadge, Img, SectionHead, namedIcon, scrollToId, theme, useWorld } from './ui'
 
 function Panel({ world }: { world: World }) {
   const { setWorld } = useWorld()
@@ -18,20 +18,20 @@ function Panel({ world }: { world: World }) {
         <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, transparent 35%, ${t.bg})` }} />
         <div className="absolute bottom-0 left-0 p-5 md:p-8">
           <p className="kicker text-white/70">{world.escape}</p>
-          <h3 className={`display mt-2 text-[clamp(2.6rem,11vw,5.5rem)] ${t.textGradient}`}>{world.name}</h3>
+          <h3 className={`t-${world.id} mt-2 ${world.id === 'mauritius' ? 'text-[clamp(3rem,13vw,6rem)]' : 'text-[clamp(1.9rem,8.4vw,4rem)]'} ${t.textGradient}`}>{world.name}</h3>
         </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-6 p-5 pt-2 md:p-8 md:pt-2">
-        <p className="serif text-3xl leading-none text-white md:text-4xl">{world.tagline}</p>
+        <p className={`s-${world.id} text-white ${world.id === 'mauritius' ? 'text-4xl md:text-5xl' : 'text-lg md:text-xl'}`}>{world.tagline}</p>
 
         <dl className="grid grid-cols-2 gap-2.5">
           {world.stats.map((s, i) => {
             const Icon = namedIcon[s.icon]
             return (
               <div key={s.label} className={`rounded-2xl bg-white/[0.06] p-3.5 ring-1 ring-white/10 ${i === world.stats.length - 1 ? 'col-span-2' : ''}`}>
-                <dt className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white/55">
-                  <Icon className="h-3.5 w-3.5" style={{ color: t.accent }} aria-hidden />
+                <dt className="flex items-center gap-2.5 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white/60">
+                  <IconBadge icon={Icon} world={world.id} size="sm" />
                   {s.label}
                 </dt>
                 <dd className="mt-1.5 text-lg font-bold leading-tight text-white">{s.value}</dd>
@@ -43,8 +43,8 @@ function Panel({ world }: { world: World }) {
 
         <ul className="space-y-2">
           {world.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2.5 text-[0.95rem] text-white/85">
-              <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: t.accent2 }} aria-hidden />
+            <li key={h} className="flex items-center gap-3 text-[0.98rem] font-medium text-white/90">
+              <span className="mt-[-2px]"><IconBadge icon={Sparkles} world={world.id} size="sm" solid /></span>
               {h}
             </li>
           ))}

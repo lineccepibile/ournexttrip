@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Clock } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { worlds } from '../data/destinations'
 import type { Experience, WorldId } from '../data/types'
-import { Img, Instagram, LoopVideo, SectionHead, WorldSwitch, categoryIcon, categoryLabel, theme, useWorld } from './ui'
+import { IconBadge, Img, Instagram, LoopVideo, SectionHead, WorldSwitch, categoryIcon, categoryLabel, theme, useWorld } from './ui'
 
 function Card({ exp, world, index }: { exp: Experience; world: WorldId; index: number }) {
   const Icon = categoryIcon[exp.category]
@@ -20,12 +20,12 @@ function Card({ exp, world, index }: { exp: Experience; world: WorldId; index: n
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/10" />
 
       <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-4">
-        <span className="flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md">
-          <Icon className="h-3.5 w-3.5" style={{ color: t.accent }} aria-hidden />
+        <span className="flex items-center gap-2.5 rounded-full bg-black/45 py-1 pl-1 pr-4 text-[0.72rem] font-extrabold uppercase tracking-[0.14em] text-white backdrop-blur-md">
+          <IconBadge icon={Icon} world={world} size="md" solid />
           {categoryLabel[exp.category]}
         </span>
-        <span className="flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1.5 text-[0.68rem] font-semibold text-white/90 backdrop-blur-md">
-          <Clock className="h-3.5 w-3.5" aria-hidden />
+        <span className="mt-1.5 flex items-center gap-1.5 rounded-full bg-black/45 px-3 py-2 text-xs font-bold text-white backdrop-blur-md">
+          <Clock className="h-4 w-4" style={{ color: t.accent }} aria-hidden />
           {exp.duration}
         </span>
       </div>
@@ -34,7 +34,7 @@ function Card({ exp, world, index }: { exp: Experience; world: WorldId; index: n
         <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em]" style={{ color: t.accent }}>
           {String(index + 1).padStart(2, '0')} · {exp.place}
         </p>
-        <h3 className="display mt-2 text-[clamp(1.7rem,7vw,2.4rem)] leading-[0.92]">{exp.title}</h3>
+        <h3 className={`t-${world} mt-2 ${world === 'mauritius' ? 'text-[clamp(2rem,8.4vw,2.7rem)]' : 'text-[clamp(1.25rem,5.4vw,1.7rem)]'}`}>{exp.title}</h3>
         <p className="mt-2.5 text-sm leading-snug text-white/80">{exp.line}</p>
         {exp.status && (
           <p className="mt-3 inline-flex rounded-md border border-white/20 px-2 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.12em] text-white/70">
