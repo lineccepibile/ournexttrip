@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 import {
   Anchor, Building2, CloudRain, Compass, Cpu, Fish, Gamepad2, Landmark, Leaf, Moon, Palette,
@@ -156,6 +156,7 @@ export function SectionHead({ index, kicker, title, children, align = 'left', to
 
 export function WorldSwitch({ className = '' }: { className?: string }) {
   const { world, setWorld } = useWorld()
+  const pillId = useId()
   const opts: { id: WorldId; label: string; emoji: string }[] = [
     { id: 'mauritius', label: 'Mauritius', emoji: '🌴' },
     { id: 'shenzhen', label: 'Shenzhen', emoji: '🤖' },
@@ -174,7 +175,7 @@ export function WorldSwitch({ className = '' }: { className?: string }) {
           >
             {active && (
               <motion.span
-                layoutId="world-pill"
+                layoutId={`world-pill-${pillId}`}
                 className="absolute inset-0 -z-10 rounded-full"
                 style={{ background: o.id === 'mauritius' ? 'linear-gradient(100deg,#a8ecd9,#19c3c0)' : 'linear-gradient(100deg,#c9ced8,#8fa8ff)' }}
                 transition={{ type: 'spring', stiffness: 400, damping: 34 }}

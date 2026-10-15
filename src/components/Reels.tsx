@@ -9,7 +9,9 @@ const toPhoto = (thumb: string | undefined, fallback: Photo, alt: string): Photo
   thumb ? { src: /^https?:/.test(thumb) ? thumb : `${import.meta.env.BASE_URL}${thumb}`, alt, fallbacks: [fallback.src] } : { ...fallback, alt }
 
 export function Reels() {
-  const { world } = useWorld()
+  const { world, setWorld } = useWorld()
+  const other = world === 'mauritius' ? 'shenzhen' : 'mauritius'
+  const otherCount = reels.filter((r) => r.world === other).length
   const list = reels.filter((r) => r.world === world)
   const w = worlds[world]
 
@@ -68,6 +70,11 @@ export function Reels() {
               <Instagram className="h-8 w-8" aria-hidden />
               <p className="display mt-4 text-3xl md:text-5xl">Reels incoming</p>
               <p className="serif mt-2 text-xl text-white/80">The best {w.name} clips are being hand-picked.</p>
+              {otherCount > 0 && (
+                <button type="button" onClick={() => setWorld(other)} className="mt-6 flex min-h-11 items-center rounded-full bg-white px-5 text-xs font-extrabold uppercase tracking-[0.16em] text-ink">
+                  Watch {otherCount} {worlds[other].name} reels
+                </button>
+              )}
             </div>
           </div>
         </div>
