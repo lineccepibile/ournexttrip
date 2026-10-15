@@ -82,7 +82,17 @@ export function Hero() {
           <span className="tabular-nums">{siteConfig.dates.label}</span>
         </motion.div>
 
-        <h1 className="display mt-[9svh] text-[clamp(4.2rem,20vw,10.5rem)] md:mt-[8svh]">
+        {siteConfig.partnerName && (
+          <motion.p
+            initial={{ opacity: 0, y: 14, rotate: -2 }}
+            animate={{ opacity: 1, y: 0, rotate: -2 }}
+            transition={{ duration: 1, delay: 0.15, ease }}
+            className="s-mauritius mt-[7svh] origin-left text-[clamp(2.4rem,11vw,4.5rem)] text-[#c9f5ea]"
+          >
+            Hey {siteConfig.partnerName},
+          </motion.p>
+        )}
+        <h1 className={`display text-[clamp(4.2rem,20vw,10.5rem)] ${siteConfig.partnerName ? 'mt-3' : 'mt-[9svh] md:mt-[8svh]'}`}>
           <Line text="Two worlds." delay={0.25} />
           <span className="block overflow-hidden pb-[0.06em]">
             <motion.span className="block" initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1.2, delay: 0.45, ease }}>
