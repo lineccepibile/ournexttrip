@@ -40,7 +40,6 @@ export const photos = {
   },
   szx: {
     hero: local('szx-hero', 'Futian skyscrapers glowing in a citywide light show, Shenzhen'),
-    minghua: local('szx-minghua', 'The Minghua ship lit up at night, Sea World, Shekou'),
     banquet: local('szx-banquet', 'A dancer mid-spin with long flowing white sleeves (illustrative)'),
     play: local('szx-play', 'A player lost in virtual reality (illustrative)'),
     tech: local('szx-tech', 'A friendly delivery robot waiting on a Shenzhen metro platform'),
