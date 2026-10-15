@@ -11,8 +11,8 @@ type Pin = { id: WorldId | 'dubai'; label: string; sub: string; lonLat: [number,
 
 export const pins: Pin[] = [
   { id: 'dubai', label: 'Dubai', sub: 'Home base', lonLat: [55.27, 25.2], color: '#f6f1ea' },
-  { id: 'mauritius', label: 'Mauritius', sub: '6h 45m', lonLat: [57.55, -20.2], color: '#19c3c0' },
-  { id: 'shenzhen', label: 'Shenzhen', sub: '7h 15m', lonLat: [114.06, 22.54], color: '#ff2fa0' },
+  { id: 'mauritius', label: 'Mauritius', sub: 'Island escape', lonLat: [57.55, -20.2], color: '#19c3c0' },
+  { id: 'shenzhen', label: 'Shenzhen', sub: 'Future city', lonLat: [114.06, 22.54], color: '#ff2fa0' },
 ]
 
 const HOME_VIEW: [number, number] = [-80, -4] // centred between all three

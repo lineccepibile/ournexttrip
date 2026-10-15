@@ -38,15 +38,15 @@ function Leg({ f, world }: { f: Flight; world: WorldId }) {
 }
 
 /** Ticket-style card showing the outbound and return flights. */
-export function BoardingPass({ flights, world }: { flights: Flight[]; world: WorldId }) {
+export function BoardingPass({ flights, world, notch }: { flights: Flight[]; world: WorldId; notch?: string }) {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-white/[0.06] ring-1 ring-white/10">
       {flights.map((f, i) => (
         <div key={f.flight}>
           {i > 0 && (
             <div className="relative h-0 border-t border-dashed border-white/20" aria-hidden>
-              <span className="absolute -left-2.5 -top-2.5 h-5 w-5 rounded-full" style={{ background: theme[world].bg }} />
-              <span className="absolute -right-2.5 -top-2.5 h-5 w-5 rounded-full" style={{ background: theme[world].bg }} />
+              <span className="absolute -left-2.5 -top-2.5 h-5 w-5 rounded-full" style={{ background: notch ?? theme[world].bg }} />
+              <span className="absolute -right-2.5 -top-2.5 h-5 w-5 rounded-full" style={{ background: notch ?? theme[world].bg }} />
             </div>
           )}
           <Leg f={f} world={world} />

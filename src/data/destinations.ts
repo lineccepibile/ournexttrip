@@ -148,7 +148,7 @@ export const mauritius: World = {
       title: 'Hello, turquoise',
       mood: 'Land, exhale, swim.',
       slots: [
-        { time: '02:25', text: 'Take off from Dubai on EK701, land in Mauritius at 09:10' },
+        { time: 'Morning', text: 'Land in Mauritius, drop the bags, find the sea' },
         { time: 'Sunset', text: 'Golden hour on a west-coast catamaran', experienceId: 'mru-sunset' },
       ],
     },
@@ -197,7 +197,7 @@ export const mauritius: World = {
       mood: 'Salt, sun, and a slow goodbye.',
       slots: [
         { time: 'Morning', text: 'Last lagoon swim and a long brunch', experienceId: 'mru-beachclub' },
-        { time: '16:25', text: 'Fly home on EK702, back in Dubai at 23:00' },
+        { time: 'Afternoon', text: 'Fly home to Dubai' },
       ],
     },
   ],
@@ -357,8 +357,8 @@ export const shenzhen: World = {
       title: 'Neon arrival',
       mood: 'Land late, look up.',
       slots: [
-        { time: '10:45', text: 'Take off from Dubai on EK328, land in Shenzhen at 22:00' },
-        { time: 'Night', text: 'Late noodles and a first glimpse of the glowing skyline' },
+        { time: 'Night', text: 'Land in Shenzhen, check in, look up' },
+        { time: 'Late', text: 'Late noodles and a first glimpse of the glowing skyline' },
       ],
     },
     {
@@ -409,7 +409,7 @@ export const shenzhen: World = {
       slots: [
         { time: 'Day', text: 'K11 ECOAST and the Prince Bay promenade', experienceId: 'szx-k11' },
         { time: 'Sunset', text: 'Floor 116 of the Ping An tower', experienceId: 'szx-skyline' },
-        { time: '00:45', text: 'Fly home on EK329 just after midnight, back in Dubai at 05:20 Mon' },
+        { time: 'Midnight', text: 'Night flight home to Dubai' },
       ],
     },
   ],

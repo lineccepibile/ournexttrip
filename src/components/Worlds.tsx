@@ -3,7 +3,6 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { mauritius, practical, shenzhen } from '../data/destinations'
 import type { World } from '../data/types'
-import { BoardingPass } from './BoardingPass'
 import { IconBadge, Img, SectionHead, namedIcon, scrollToId, theme, useWorld } from './ui'
 
 function Panel({ world }: { world: World }) {
@@ -41,8 +40,6 @@ function Panel({ world }: { world: World }) {
             )
           })}
         </dl>
-
-        <BoardingPass flights={world.flights} world={world.id} />
 
         <ul className="space-y-2">
           {world.highlights.map((h) => (

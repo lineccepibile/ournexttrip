@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
-import { comparison, practical } from '../data/destinations'
+import { comparison, practical, worlds } from '../data/destinations'
+import { BoardingPass } from './BoardingPass'
 import { namedIcon } from './ui'
 
 export function Reality() {
@@ -60,7 +61,9 @@ export function Reality() {
               <div key={id} className="rounded-[1.5rem] p-6 text-white md:p-8" style={{ background: dark }}>
                 <p className={`s-${id} ${id === 'mauritius' ? 'text-3xl md:text-4xl' : 'text-lg md:text-xl'}`}>{p.summary}</p>
                 <p className="mt-5 text-sm leading-relaxed text-white/70">{p.visa}</p>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">{p.flight}</p>
+                <p className="mt-6 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white/55">Flights</p>
+                <div className="mt-2"><BoardingPass flights={worlds[id].flights} world={id} notch={dark} /></div>
+                <p className="mt-2 text-xs leading-relaxed text-white/50">Times from the Emirates schedule. Confirm when booking.</p>
                 {'drive' in p && <p className="mt-3 text-sm leading-relaxed text-white/70">{p.drive}</p>}
                 <div className="mt-5 flex flex-wrap gap-2">
                   <a href={p.visaLink} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-1.5 rounded-full bg-white/10 px-4 text-xs font-bold uppercase tracking-[0.12em] hover:bg-white/20">
