@@ -1,0 +1,23 @@
+{
+  "mru-hero": ["Le Morne Brabant", "Le Morne Mauritius lagoon"],
+  "mru-sail": ["catamaran Mauritius", "Ile aux Cerfs Mauritius"],
+  "mru-sunset": ["Mauritius sunset", "Flic en Flac sunset"],
+  "mru-heli": ["Mauritius underwater waterfall", "Le Morne aerial"],
+  "mru-waterfall": ["Chamarel waterfall", "Chamarel falls"],
+  "mru-earth": ["Seven Coloured Earths Chamarel", "Chamarel coloured earth"],
+  "mru-beach": ["Mauritius beach palm", "Bel Ombre Mauritius beach"],
+  "mru-market": ["Port Louis Central Market", "Caudan Waterfront Port Louis"],
+  "mru-gorges": ["Black River Gorges", "Black River Gorges viewpoint"],
+  "mru-dolphins": ["dolphins Mauritius", "spinner dolphins Tamarin"],
+  "szx-hero": ["Shenzhen skyline night", "Ping An Finance Center night"],
+  "szx-minghua": ["Minghua ship Shekou", "Sea World Shekou Shenzhen"],
+  "szx-banquet": ["Tang dynasty dance performance", "Chinese classical dance hanfu"],
+  "szx-play": ["go kart indoor", "virtual reality arcade"],
+  "szx-tech": ["DJI store Shenzhen", "DJI flagship store"],
+  "szx-robots": ["Unitree robot dog", "humanoid robot"],
+  "szx-hqb": ["Huaqiangbei", "Huaqiang North Shenzhen electronics"],
+  "szx-k11": ["K11 ECOAST Shenzhen", "Shenzhen Bay Super Headquarters", "Shenzhen MOCAPE museum"],
+  "szx-skyline": ["Ping An Finance Center Shenzhen", "Futian skyline Shenzhen"],
+  "szx-bay": ["Shenzhen Talent Park", "Shenzhen Bay Park night"],
+  "szx-beach": ["Dameisha beach", "Dameisha Shenzhen"]
+}

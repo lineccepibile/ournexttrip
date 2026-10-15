@@ -181,7 +181,7 @@ export function Decision() {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="gutter mx-auto max-w-7xl text-center"
       >
-        <p className="kicker text-white/55">06 · The final decision</p>
+        <p className="kicker text-white/55">07 · The final decision</p>
         <h2 className="display mt-5 text-[clamp(2.6rem,10vw,8.5rem)]">
           So… where are we <span className="serif normal-case tracking-normal text-gradient-mru">disap</span><span className="serif normal-case tracking-normal text-gradient-szx">pearing</span> to?
         </h2>

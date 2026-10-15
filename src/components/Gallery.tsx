@@ -115,7 +115,7 @@ export function Gallery() {
       </AnimatePresence>
 
       <SectionHead
-        index="02"
+        index="03"
         kicker="Experience gallery"
         title={<>What we<br /><span className={theme[world].textGradient}>could do</span></>}
       >

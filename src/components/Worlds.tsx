@@ -87,8 +87,8 @@ export function Worlds() {
   }
 
   return (
-    <section id="explore" className="relative scroll-mt-4 bg-ink py-24 md:py-36">
-      <SectionHead index="01" kicker="The contenders" title={<>Pick a world<br /><span className="serif normal-case tracking-normal text-white/80">to explore</span></>}>
+    <section id="worlds" className="relative scroll-mt-4 bg-ink py-24 md:py-36">
+      <SectionHead index="02" kicker="The contenders" title={<>Pick a world<br /><span className="serif normal-case tracking-normal text-white/80">to explore</span></>}>
         Two very different ways to spend five days. Swipe between them.
       </SectionHead>
 

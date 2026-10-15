@@ -1,5 +1,6 @@
 import { MotionConfig, motion, useScroll, useSpring } from 'motion/react'
 import { Hero } from './components/Hero'
+import { MapSection } from './components/MapSection'
 import { Worlds } from './components/Worlds'
 import { Gallery } from './components/Gallery'
 import { Reels } from './components/Reels'
@@ -29,6 +30,7 @@ export default function App() {
           <Progress />
           <main>
             <Hero />
+            <MapSection />
             <Worlds />
             <Gallery />
             <Reels />

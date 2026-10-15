@@ -15,7 +15,7 @@ export function Itinerary() {
   return (
     <section id="itinerary" className="relative overflow-hidden py-24 md:py-36" style={{ background: world === 'mauritius' ? '#f1dfc0' : '#0a0b24', transition: 'background 1s' }}>
       <div className={world === 'mauritius' ? 'text-ink' : 'text-white'}>
-        <SectionHead tone={world === 'mauritius' ? 'dark' : 'light'} index="04" kicker="Five days, sketched" title={<>What our<br />five days<br /><span className="serif normal-case tracking-normal">could look like</span></>}>
+        <SectionHead tone={world === 'mauritius' ? 'dark' : 'light'} index="05" kicker="Five days, sketched" title={<>What our<br />five days<br /><span className="serif normal-case tracking-normal">could look like</span></>}>
             One or two big moments a day. Lots of room for nothing at all.
           </SectionHead>
 

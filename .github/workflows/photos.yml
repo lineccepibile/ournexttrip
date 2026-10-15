@@ -1,0 +1,29 @@
+name: Fetch photos
+
+on:
+  push:
+    branches: [photos]
+    paths: ['tools/photos/**', '.github/workflows/photos.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - name: Candidates or finals
+        run: |
+          if [ -f tools/photos/picks.json ]; then python tools/photos/fetch.py finals; else python tools/photos/fetch.py; fi
+      - name: Commit results
+        run: |
+          git config user.name "photo-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Fetched photos" || echo "nothing to commit"
+          git push

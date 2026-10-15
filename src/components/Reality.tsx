@@ -13,7 +13,7 @@ export function Reality() {
           viewport={{ once: true, margin: '-15% 0px' }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="kicker mb-5 flex items-center gap-3 text-ink/55"><span>05</span><span className="h-px w-8 bg-ink/30" />The reality check</p>
+          <p className="kicker mb-5 flex items-center gap-3 text-ink/55"><span>06</span><span className="h-px w-8 bg-ink/30" />The reality check</p>
           <h2 className="display text-[clamp(2.4rem,8.5vw,7rem)]">The practical stuff.</h2>
           <p className="serif mt-3 text-[clamp(1.5rem,4.5vw,2.6rem)] leading-tight text-ink/75">Because even adventure needs a plan.</p>
         </motion.header>

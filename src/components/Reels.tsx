@@ -17,7 +17,7 @@ export function Reels() {
 
   return (
     <section id="watch" className="relative bg-ink py-24 md:py-36">
-      <SectionHead index="03" kicker="Watch the experience" title={<>Press<br /><span className="serif normal-case tracking-normal">play</span> <span className={theme[world].textGradient}>on it</span></>}>
+      <SectionHead index="04" kicker="Watch the experience" title={<>Press<br /><span className="serif normal-case tracking-normal">play</span> <span className={theme[world].textGradient}>on it</span></>}>
         Little films that sold me on each idea. Tap one to watch it on Instagram.
       </SectionHead>
 
