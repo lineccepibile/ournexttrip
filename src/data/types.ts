@@ -20,6 +20,8 @@ export type Category =
 export interface Photo {
   /** Image URL (remote or a file in /public). */
   src: string
+  /** Responsive sources, e.g. 'a-800.webp 800w, a.webp 1600w'. */
+  srcSet?: string
   /** Backup URLs tried in order if `src` fails to load. */
   fallbacks?: string[]
   /** Short accessible description. */

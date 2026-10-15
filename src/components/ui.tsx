@@ -97,13 +97,13 @@ export function Img({
         <img
           key={sources[i]}
           src={sources[i]}
+          srcSet={i === 0 ? photo.srcSet : undefined}
           alt={photo.alt}
-          sizes={sizes}
+          sizes={sizes ?? '100vw'}
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
           // @ts-expect-error fetchpriority is valid HTML
           fetchpriority={eager ? 'high' : 'auto'}
-          referrerPolicy="no-referrer"
           onLoad={() => setLoaded(true)}
           onError={() => { setLoaded(false); setI((n) => n + 1) }}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'} ${kenburns ? 'kenburns' : ''}`}

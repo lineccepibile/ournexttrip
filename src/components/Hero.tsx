@@ -50,7 +50,7 @@ function DestinationCard({ world, delay }: { world: World; delay: number }) {
         <IconBadge icon={isM ? Palmtree : Bot} world={world.id} size="md" solid />
       </div>
       <div className="absolute inset-x-0 bottom-0 p-3 md:p-6">
-        <p className={`t-${world.id} ${isM ? 'text-gradient-mru text-[clamp(1.7rem,8vw,4.2rem)]' : 'text-gradient-szx text-[clamp(1.05rem,5vw,2.9rem)]'}`}>{world.name}</p>
+        <p className={`t-${world.id} ${isM ? 'text-[#c9f5ea] text-[clamp(1.7rem,8vw,4.2rem)]' : 'text-[#e3e6ff] text-[clamp(1.05rem,5vw,2.9rem)]'}`}>{world.name}</p>
         <p className={`s-${world.id} mt-1.5 leading-tight text-white/90 ${isM ? 'text-[clamp(1.15rem,4.6vw,2rem)]' : 'text-[clamp(0.66rem,2.6vw,1.05rem)]'}`}>{world.slogan}</p>
       </div>
     </motion.button>
