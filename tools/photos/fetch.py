@@ -84,9 +84,9 @@ def finals():
     os.makedirs('public/photos', exist_ok=True)
     credits = {}
     for slot, idx in picks.items():
-        it = json.load(open(f'{OUT}/{slot}/meta.json'))[idx]
+        src, idx = idx.split('/') if isinstance(idx, str) else (slot, idx)
+        it = json.load(open(f'{OUT}/{src}/meta.json'))[int(idx)]
         save(it, f'public/photos/{slot}.jpg', 1600)
-        Image.open(f'public/photos/{slot}.jpg').resize((800, 0) if False else None) if False else None
         im = Image.open(f'public/photos/{slot}.jpg'); im.thumbnail((800, 1600)); im.save(f'public/photos/{slot}-800.jpg', 'JPEG', quality=80, optimize=True, progressive=True)
         credits[slot] = {k: it[k] for k in ('title', 'author', 'license', 'page', 'source')}
         print('final', slot)
