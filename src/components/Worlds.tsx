@@ -80,6 +80,16 @@ export function Worlds() {
     return () => el.removeEventListener('scroll', onScroll)
   }, [])
 
+  const { world } = useWorld()
+  useEffect(() => {
+    const i = world === 'mauritius' ? 0 : 1
+    const el = track.current
+    const child = el?.children[i] as HTMLElement | undefined
+    if (el && child && el.scrollWidth > el.clientWidth + 4) {
+      el.scrollTo({ left: child.offsetLeft - el.offsetLeft - (el.clientWidth - child.offsetWidth) / 2, behavior: 'smooth' })
+    }
+  }, [world])
+
   const go = (i: number) => {
     const el = track.current
     const child = el?.children[i] as HTMLElement | undefined

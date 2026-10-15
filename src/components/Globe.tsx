@@ -17,7 +17,7 @@ export const pins: Pin[] = [
 
 const HOME_VIEW: [number, number] = [-80, -4] // centred between all three
 
-export function Globe({ focus }: { focus: WorldId | null }) {
+export function Globe({ focus, zoom = false }: { focus: WorldId | null; zoom?: boolean }) {
   const canvas = useRef<HTMLCanvasElement>(null)
   const focusRef = useRef(focus)
   focusRef.current = focus
@@ -28,16 +28,19 @@ export function Globe({ focus }: { focus: WorldId | null }) {
     dragging: false,
     lastX: 0,
     idleUntil: 0,
+    zoom: 1,
+    zoomTarget: 1,
   })
 
   // Ease towards a destination when one is focused.
   useEffect(() => {
     const target: [number, number] = focus
-      ? (() => { const p = pins.find((x) => x.id === focus)!; return [-p.lonLat[0], -p.lonLat[1] * 0.6] as [number, number] })()
+      ? (() => { const p = pins.find((x) => x.id === focus)!; return [-p.lonLat[0], -p.lonLat[1] * (zoom ? 1 : 0.6)] as [number, number] })()
       : HOME_VIEW
     state.current.target = target
+    state.current.zoomTarget = zoom && focus ? 3.2 : 1
     state.current.idleUntil = performance.now() + (focus ? 6000 : 1500)
-  }, [focus])
+  }, [focus, zoom])
 
   useEffect(() => {
     const el = canvas.current
@@ -67,7 +70,7 @@ export function Globe({ focus }: { focus: WorldId | null }) {
       size = el.clientWidth
       el.width = size * dpr
       el.height = size * dpr
-      projection.translate([size / 2, size / 2]).scale(size / 2 - 2)
+      projection.translate([size / 2, size / 2]).scale((size / 2 - 2) * state.current.zoom)
     }
     resize()
     const ro = new ResizeObserver(resize)
@@ -97,7 +100,8 @@ export function Globe({ focus }: { focus: WorldId | null }) {
       } else if (!reduce && !s.dragging && now > s.idleUntil) {
         s.rotate = [s.rotate[0] + dt * 0.006, s.rotate[1] + (-8 - s.rotate[1]) * 0.01]
       }
-      projection.rotate(s.rotate)
+      s.zoom += (s.zoomTarget - s.zoom) * 0.05
+      projection.rotate(s.rotate).scale((size / 2 - 2) * s.zoom)
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       ctx.clearRect(0, 0, size, size)
@@ -135,8 +139,8 @@ export function Globe({ focus }: { focus: WorldId | null }) {
       // Pins (pulse)
       const centre: [number, number] = [-s.rotate[0], -s.rotate[1]]
       const next = pins.map((p) => {
-        const vis = geoDistance(p.lonLat, centre) < Math.PI / 2 - 0.05
         const [x, y] = projection(p.lonLat) ?? [0, 0]
+        const vis = geoDistance(p.lonLat, centre) < Math.PI / 2 - 0.05 && x >= 0 && y >= 0 && x <= size && y <= size
         if (vis) {
           const pulse = reduce ? 0 : (now / 1400 + (p.id === 'shenzhen' ? 0.5 : 0)) % 1
           ctx.beginPath(); ctx.arc(x, y, 4 + pulse * 14, 0, Math.PI * 2)
@@ -186,10 +190,11 @@ export function Globe({ focus }: { focus: WorldId | null }) {
 
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[560px]">
+      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-700" style={{ boxShadow: zoom ? '0 0 80px 10px rgba(143,168,255,.25)' : 'none' }} />
       <div aria-hidden className="absolute inset-[-12%] rounded-full opacity-50 blur-3xl" style={{ background: 'radial-gradient(circle, rgba(123,60,255,.35), rgba(25,195,192,.12) 55%, transparent 70%)' }} />
       <canvas
         ref={canvas}
-        className="relative h-full w-full cursor-grab touch-pan-y active:cursor-grabbing"
+        className="relative h-full w-full cursor-grab touch-pan-y rounded-full active:cursor-grabbing"
         role="img"
         aria-label="Globe showing Dubai, Mauritius in the Indian Ocean, and Shenzhen in southern China, with flight paths from Dubai"
       />
