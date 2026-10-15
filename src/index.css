@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Anton', 'Impact', 'Arial Narrow', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
+  --font-sans: 'Manrope Variable', system-ui, -apple-system, sans-serif;
+
+  --color-ink: #07070a;
+  --color-paper: #f6f1ea;
+
+  /* Mauritius */
+  --color-lagoon: #19c3c0;
+  --color-seafoam: #a8ecd9;
+  --color-sand: #f1dfc0;
+  --color-coral: #ff7a5c;
+  --color-palm: #1f7a57;
+  --color-deep: #04363b;
+
+  /* Shenzhen */
+  --color-electric: #2f6bff;
+  --color-violet: #7b3cff;
+  --color-midnight: #0a0b24;
+  --color-chrome: #c9ced8;
+  --color-neon: #ff2fa0;
+
+  --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-ink);
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-coral);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-seafoam);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@utility gutter {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  @media (min-width: 768px) {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+  .kicker {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .snap-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .snap-track::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-track > * {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  .text-gradient-mru {
+    background: linear-gradient(100deg, var(--color-seafoam), var(--color-lagoon) 45%, var(--color-coral));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-szx {
+    background: linear-gradient(100deg, var(--color-chrome), var(--color-electric) 40%, var(--color-violet) 70%, var(--color-neon));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Slow "cinematic loop" drift for still photography */
+@keyframes kenburns {
+  0% { transform: scale(1.04) translate3d(0, 0, 0); }
+  100% { transform: scale(1.16) translate3d(-2%, -1.5%, 0); }
+}
+.kenburns {
+  animation: kenburns 18s var(--ease-cinema) infinite alternate;
+  will-change: transform;
+}
+
+/* Film grain */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .kenburns { animation: none; transform: scale(1.04); }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
