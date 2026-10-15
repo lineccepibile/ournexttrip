@@ -26,6 +26,48 @@ export interface Reel {
 
 export const reels: Reel[] = [
   {
+    title: 'Mauritius in motion · 01',
+    world: 'mauritius',
+    url: 'https://www.instagram.com/reel/Ddy96pIza7v/',
+    caption: '',
+  },
+  {
+    title: 'Mauritius in motion · 02',
+    world: 'mauritius',
+    url: 'https://www.instagram.com/reel/Dcd2DgfBcxJ/',
+    caption: '',
+  },
+  {
+    title: 'Mauritius in motion · 03',
+    world: 'mauritius',
+    url: 'https://www.instagram.com/reel/DcVvQJGqbW5/',
+    caption: '',
+  },
+  {
+    title: 'Mauritius in motion · 04',
+    world: 'mauritius',
+    url: 'https://www.instagram.com/reel/DYr3E6KMxmG/',
+    caption: '',
+  },
+  {
+    title: 'Mauritius in motion · 05',
+    world: 'mauritius',
+    url: 'https://www.instagram.com/reel/Deeq_FzslRi/',
+    caption: '',
+  },
+  {
+    title: 'Mauritius in motion · 06',
+    world: 'mauritius',
+    url: 'https://www.instagram.com/reel/DcV_payIR_l/',
+    caption: '',
+  },
+  {
+    title: 'Mauritius in motion · 07',
+    world: 'mauritius',
+    url: 'https://www.instagram.com/reel/DULf0zOiH0G/',
+    caption: '',
+  },
+  {
     title: 'Shenzhen in motion · 01',
     world: 'shenzhen',
     url: 'https://www.instagram.com/reel/Daeo2s8TIoe/',
